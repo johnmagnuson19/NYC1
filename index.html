@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>NYC 2026 Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FBF8F0; --soft:#F3EDE2; --ink:#2B1E1A; --muted:#7A6559; --line:#E8E2D1;
+  --espresso:#2B1E1A; --red:#861D1D; --rust:#BF6F31; --gold:#F4B34C; --gold-d:#9A5F10; --blush:#EBCCB4; --sand:#E8E2D1; --cream:#FBF8F0;
+  --blue:var(--red); --blue-t:#F7E7E3; --blue-d:var(--red); --gold-t:#FDF1DA;
+  --park:#BF6F31; --park-t:#F8EADF;
+  --arch:#2B1E1A; --arch-t:#EFE9E1;
+  --museum:#861D1D; --museum-t:#F7E7E3;
+  --memorial:#9A5F10; --memorial-t:#FDF1DA;
+  --photo:#861D1D; --photo-t:#F7E7E3;
+  --records:#2B1E1A; --records-t:#EFE9E1;
+  --shop:#BF6F31; --shop-t:#F8EADF;
+  --food:#9A5F10; --food-t:#FDF1DA;
+  --music:#861D1D; --music-t:#F7E7E3;
+  --pop:#BF6F31; --pop-t:#F8EADF;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --body:"Figtree","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+  --hand:"Caveat","Bradley Hand","Comic Sans MS",cursive;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px;padding-block:0 72px}
+.wrap{max-width:1100px;margin:0 auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:8px}
+
+header{padding-block:56px 36px;display:grid;gap:18px;position:relative}
+header::before{content:"";position:absolute;inset:0 calc(50% - 50vw);background:radial-gradient(55% 90% at 92% 0%,rgba(244,179,76,.35),transparent 70%),radial-gradient(50% 80% at 0% 10%,rgba(235,204,180,.55),transparent 70%),var(--cream);z-index:-1}
+body{overflow-x:hidden}
+.hello{font-family:var(--hand);font-size:30px;color:var(--rust);margin:0;line-height:1;transform:rotate(-2deg);transform-origin:left}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(46px,9vw,96px);line-height:.95;margin:0;letter-spacing:-.03em;text-wrap:balance}
+h1 .dot{display:inline-block;width:.18em;height:.18em;border-radius:50%;background:var(--gold);margin-left:.04em}
+.lede{max-width:60ch;margin:0;font-size:18px;color:#4A3A33}
+.lede em{color:var(--muted);font-style:normal}
+.meta{font-size:14px;color:var(--muted);margin:0}
+
+nav.index{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(251,248,240,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-block:12px;border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.index::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font-family:var(--body);font-weight:600;font-size:14px;border:0;color:var(--c);background:var(--t);border-radius:999px;padding:7px 14px;cursor:pointer;display:inline-flex;gap:7px;align-items:center;transition:transform .15s,background .15s,color .15s}
+.chip .n{font-size:12px;font-weight:700;background:rgba(255,255,255,.75);color:var(--c);border-radius:999px;padding:0 7px;line-height:1.6}
+.chip[aria-pressed="true"]{background:var(--c);color:#fff;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--gold)}
+.chip.all{--c:var(--espresso);--t:var(--sand)}
+
+section.cat{padding-block:44px 4px}
+.cat-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.badge{width:44px;height:44px;border-radius:14px;background:var(--t);color:var(--c);display:grid;place-items:center;flex:0 0 auto}
+.badge svg{width:24px;height:24px}
+.cat-head h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,5vw,38px);line-height:1.05;margin:0;letter-spacing:-.02em}
+.cat-head p{margin:0;color:var(--muted);font-size:16px;flex:1 1 100%}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,310px),1fr));gap:18px}
+.card{overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 22px 16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 2px rgba(43,30,26,.04),0 8px 24px -12px rgba(43,30,26,.10)}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.card h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.2;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.frame{font-size:12px;font-weight:700;color:var(--c);background:var(--t);border-radius:999px;padding:2px 9px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.where{font-size:14px;color:var(--muted);margin:0;display:flex;gap:6px;align-items:center}
+.where::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c);flex:0 0 auto}
+.card p.note{margin:0;font-size:15.5px;color:#4A3A33}
+.tip{margin:4px 0 0;font-size:15px;color:var(--ink);background:var(--t);border-radius:12px;padding:10px 12px}
+.tip b{font-family:var(--hand);font-weight:600;font-size:22px;color:var(--c);margin-right:6px;line-height:1}
+.links{display:flex;gap:8px;margin-top:auto;padding-top:6px}
+.links a{font-weight:600;font-size:14px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 14px;transition:background .15s,border-color .15s,color .15s}
+.links a:hover{background:var(--c);border-color:var(--c);color:#fff}
+.links a{background:#fff}
+
+.combos{margin-top:64px;background:var(--espresso);color:var(--cream);border-radius:28px;padding:32px clamp(20px,4vw,40px)}
+.combos h2{color:var(--cream);font-family:var(--display);font-weight:800;font-size:clamp(28px,5vw,38px);letter-spacing:-.02em;margin:0 0 6px}
+.combos .sub{font-family:var(--hand);font-size:24px;color:var(--gold);margin:0 0 20px}
+.combos ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;counter-reset:c}
+.combos li{background:#fff;border-radius:16px;border-top:4px solid var(--gold);padding:16px 18px;font-size:15px;color:#4A3A33;counter-increment:c}
+.combos li strong{display:block;font-family:var(--display);font-weight:700;font-size:17px;color:var(--ink);margin-bottom:4px}
+footer{margin-top:36px;font-size:14px;color:var(--muted);display:grid;gap:4px;text-align:center}
+footer a{color:var(--red)}
+@media (prefers-reduced-motion:no-preference){
+  .card{transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(43,30,26,.05),0 16px 32px -14px rgba(43,30,26,.18)}
+  .chip:hover{transform:translateY(-1px)}
+}
+
+.gallery{position:relative;margin:-20px -22px 6px;border-radius:20px 20px 0 0;overflow:hidden;background:var(--sand)}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;margin:0;position:relative}
+.slide img{display:block;width:100%;max-width:100%;aspect-ratio:4/3;object-fit:cover}
+.slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 10px;background:linear-gradient(transparent,rgba(43,30,26,.78));color:#FBF8F0;font-size:13px;line-height:1.35;display:grid;gap:1px}
+.slide figcaption span{font-size:10.5px;opacity:.8}
+.slide figcaption a{text-decoration:none}
+.count{position:absolute;top:10px;right:10px;background:rgba(43,30,26,.72);color:#FBF8F0;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;font-variant-numeric:tabular-nums}
+.nav-btn{position:absolute;top:calc(50% - 18px);width:34px;height:34px;border-radius:50%;border:0;background:rgba(251,248,240,.92);color:var(--espresso);font-size:18px;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 2px 8px rgba(43,30,26,.2);opacity:0;transition:opacity .15s}
+.nav-btn.prev{left:10px}.nav-btn.next{right:10px}
+.gallery:hover .nav-btn,.nav-btn:focus-visible{opacity:1}
+@media (hover:none){.nav-btn{display:none}}
+.dots{position:absolute;bottom:10px;right:12px;display:flex;gap:5px;z-index:2}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(251,248,240,.5)}
+.dots i.on{background:var(--gold)}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>NYC 2026 Field Guide<span class="dot"></span></h1>
+  </header>
+
+  <nav class="index" id="index" aria-label="Filter by type"></nav>
+  <main id="guide"></main>
+
+  <section class="combos" aria-labelledby="combos-h">
+    <h2 id="combos-h">Easy pairings</h2>
+    <p class="sub">stops that go well together</p>
+    <ol>
+      <li><strong>Central Park south to north.</strong> Enter at 72nd St, walk the Mall to the Beethoven bust, down the steps to Bethesda Terrace, then up past the Ramble to Belvedere Castle. Exit east to the Met, and finish with an egg cream at Lexington Candy Shop.</li>
+      <li><strong>Museum Mile.</strong> The Met and the Guggenheim are six blocks apart on Fifth Ave. George Glazer Gallery is a short walk east on 94th St after the Guggenheim.</li>
+      <li><strong>Lower East Side photo afternoon.</strong> ICP Museum and AUTOPHOTO are two blocks apart around Essex, Orchard and Delancey.</li>
+      <li><strong>East Village small shops.</strong> Casey Rubber Stamps and Limited to One are around the corner from each other; John Derian is a 10-minute walk south on 2nd St.</li>
+      <li><strong>West Village wander.</strong> Dauphinette and Pink Olive are a few blocks apart; Joanne Hendricks Cookbooks is a walk south into Hudson Square.</li>
+      <li><strong>Midtown West records and gear.</strong> Jazz Record Center (26th St), B&amp;H (34th St), then Rough Trade at Rockefeller Center and a late set at Birdland on 44th St.</li>
+      <li><strong>Brooklyn day.</strong> Dumbo in the morning for the Manhattan Bridge view, Green-Wood Cemetery and Prospect Park in the afternoon. Brooklyn Film Camera is in East Williamsburg, a separate trip on the L train.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <div>Source map: <a href="https://www.google.com/maps/d/u/0/edit?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k&amp;usp=sharing">NYC 2026 on Google My Maps</a></div>
+    <div>Made for your trip. Have fun out there.</div>
+  </footer>
+</div>
+
+<script>
+const CATS = [
+  {id:"park", name:"Parks & Neighborhoods", blurb:"Green space, views, and one of the best walks in Brooklyn."},
+  {id:"arch", name:"Architecture", blurb:"Two Victorian set pieces inside Central Park, both by Calvert Vaux and Jacob Wrey Mould."},
+  {id:"museum", name:"Museums & Galleries", blurb:"Heavy on photography: three of these are photo institutions."},
+  {id:"memorial", name:"Monuments & Statues", blurb:"A composers' trail. Each one marks a musician with a real New York connection."},
+  {id:"photo", name:"Photo & Camera", blurb:"Gear, film, and repairs."},
+  {id:"records", name:"Record Stores", blurb:"New releases, rare pressings, and jazz specialists."},
+  {id:"shop", name:"Shops & Makers", blurb:"Small, specific, independent shops. Most have limited hours."},
+  {id:"food", name:"Food", blurb:"One stop, and it's a classic."},
+  {id:"music", name:"Live Music", blurb:"Where to hear the music the statues commemorate."},
+  {id:"pop", name:"Pop Culture", blurb:"Fan pilgrimage spots."}
+];
+const ICON = {
+  park:'<path d="M12 3l5 7h-3l4 6H6l4-6H7z"/><path d="M12 16v5"/>',
+  arch:'<path d="M4 21V9l4-3v4l4-3v4l4-3 4 3v10z"/><path d="M10 21v-4h4v4"/>',
+  museum:'<path d="M3 9l9-5 9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9"/><path d="M3 20h18"/>',
+  memorial:'<circle cx="12" cy="7" r="3"/><path d="M8 21v-5a4 4 0 0 1 8 0v5"/><path d="M6 21h12"/>',
+  photo:'<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/>',
+  records:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/>',
+  shop:'<path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/>',
+  food:'<path d="M7 3h10l-2 18H9z"/><path d="M7.5 8h9"/><path d="M14 3l2-2"/>',
+  music:'<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+  pop:'<path d="M4 7h11v10H4z"/><path d="M15 10l5-3v10l-5-3"/>'
+};
+
+const P = [
+  // Parks
+  {c:"park", n:"Central Park", w:"Manhattan · 59th–110th St", q:"Central Park New York",
+   note:"843 acres designed by Frederick Law Olmsted and Calvert Vaux in 1858. Four of your pins are inside it: Bethesda Terrace, Belvedere Castle, the Beethoven bust and the Duke Ellington statue at the northeast corner.",
+   tip:"Go early on a weekday morning for empty paths and soft light."},
+  {c:"park", n:"Prospect Park", w:"Brooklyn · Park Slope", q:"Prospect Park Brooklyn",
+   note:"Olmsted and Vaux's follow-up to Central Park, and many think the better of the two. The Long Meadow is nearly a mile of uninterrupted lawn.",
+   tip:"Enter at Grand Army Plaza to see the arch, then walk straight onto the Long Meadow."},
+  {c:"park", n:"Dumbo", w:"Brooklyn · waterfront", q:"Washington Street Dumbo Brooklyn",
+   note:"Cobblestone streets and converted warehouses between the Brooklyn and Manhattan Bridges. The classic shot is from Washington St at Water St, with the Empire State Building framed under the Manhattan Bridge.",
+   tip:"Arrive before 9 a.m. to get the Washington St view without a crowd. Jane's Carousel and Pebble Beach are steps away."},
+  {c:"park", n:"The Green-Wood Cemetery", w:"Brooklyn · Sunset Park", q:"Green-Wood Cemetery Brooklyn",
+   note:"Founded in 1838 and a National Historic Landmark, with a Gothic Revival main gate by Richard Upjohn. Leonard Bernstein, Jean-Michel Basquiat and Louis Comfort Tiffany are buried here.",
+   tip:"Climb Battle Hill to the Minerva statue, who salutes the Statue of Liberty across the harbor. Free, open daily."},
+  // Architecture
+  {c:"arch", n:"Belvedere Castle", w:"Central Park · mid-park at 79th St", q:"Belvedere Castle Central Park",
+   note:"A small Victorian folly from 1869 on Vista Rock, the park's second-highest point. It doubles as a weather station and was fully restored in 2019.",
+   tip:"Look down over Turtle Pond and the Great Lawn from the terrace. Pairs with the Met, a short walk east."},
+  {c:"arch", n:"Bethesda Terrace", w:"Central Park · mid-park at 72nd St", q:"Bethesda Terrace Central Park",
+   note:"The park's formal heart. The Angel of the Waters fountain (1873) is by Emma Stebbins, the first woman commissioned for a major public artwork in New York.",
+   tip:"Walk through the lower arcade to see the Minton tile ceiling. Buskers play there because the acoustics are great."},
+  // Museums
+  {c:"museum", n:"The Metropolitan Museum of Art", w:"Fifth Ave at 82nd St", q:"Metropolitan Museum of Art",
+   note:"Pick two or three wings rather than trying to see it all. With your interests, the photography galleries and the musical instruments collection are good anchors.",
+   tip:"Closed Wednesdays. The Roof Garden is open seasonally, roughly spring through fall."},
+  {c:"museum", n:"Solomon R. Guggenheim Museum", w:"Fifth Ave at 89th St", q:"Guggenheim Museum New York",
+   note:"Frank Lloyd Wright's spiral, opened in 1959 and now a UNESCO World Heritage Site. The building is as much the reason to go as what's on the walls.",
+   tip:"Take the elevator to the top and walk down the ramp. Shoot straight up from the rotunda floor on the way out."},
+  {c:"museum", n:"The Morgan Library & Museum", w:"Murray Hill · Madison Ave at 36th St", q:"Morgan Library and Museum",
+   note:"Pierpont Morgan's 1906 library by McKim, Mead & White, with triple-height walnut bookcases, plus a Renzo Piano addition. Holds Gutenberg Bibles and handwritten music manuscripts.",
+   tip:"Head straight for the East Room, then Morgan's study. Check the current exhibitions for music scores."},
+  {c:"museum", n:"International Center of Photography", w:"Lower East Side · 79 Essex St", q:"International Center of Photography Museum",
+   note:"ICP's museum sits in the Essex Crossing development. Rotating exhibitions cover documentary, fashion and contemporary photography.",
+   tip:"Pairs with AUTOPHOTO two blocks away. Essex Market downstairs is good for lunch."},
+  {c:"museum", n:"Aperture", w:"Upper West Side · 380 Columbus Ave", q:"Aperture 380 Columbus Avenue",
+   note:"The photography nonprofit, founded in 1952 by Ansel Adams and others, just opened its first permanent home in a 140-year-old landmark building. It has a gallery and a photobook shop.",
+   tip:"Brand new as of September 2026. Free, open Wednesday through Sunday. Near the Natural History Museum."},
+  {c:"museum", n:"AUTOPHOTO", w:"Lower East Side · Orchard St", q:"AUTOPHOTO Photobooth Gallery Museum",
+   note:"A photobooth gallery and museum with vintage analog booths you can still use. The strips come out as real chemical prints.",
+   tip:"Bring a friend and take a strip. It makes a better souvenir than anything in a gift shop."},
+  {c:"museum", n:"George Glazer Gallery", w:"Upper East Side · 308 E 94th St", q:"George Glazer Gallery",
+   note:"An antiques gallery specializing in globes, maps, celestial charts and scientific instruments. Part shop, part cabinet of curiosities.",
+   tip:"Call or email before visiting to confirm it's open."},
+  // Memorials
+  {c:"memorial", n:"Beethoven Monument", w:"Central Park · the Mall", q:"Beethoven bust Central Park",
+   note:"A bronze bust by Henry Baerer from 1884, standing on the Concert Ground at the north end of the Mall near the Naumburg Bandshell.",
+   tip:"Easy to combine with Bethesda Terrace, just down the stairs."},
+  {c:"memorial", n:"Statue of Antonín Dvořák", w:"Stuyvesant Square Park · E 17th St", q:"Antonin Dvorak statue Stuyvesant Square",
+   note:"Dvořák lived a block away on East 17th St from 1892 to 1895, while running the National Conservatory. He wrote the New World Symphony here.",
+   tip:"A quiet, leafy square. Good pause between the East Village and Midtown."},
+  {c:"memorial", n:"Duke Ellington Statue", w:"Central Park · Fifth Ave at 110th St", q:"Duke Ellington memorial Central Park",
+   note:"A 25-foot monument by Robert Graham (1997): Ellington stands beside a grand piano held up by nine muses.",
+   tip:"Pair with the Harlem Meer and the Conservatory Garden just south."},
+  {c:"memorial", n:"Béla Bartók Bust", w:"Midtown West · W 57th St", q:"Bela Bartok statue New York 57th Street",
+   note:"A bronze bust marking the stretch of West 57th St where the Hungarian composer spent his last years in New York before his death in 1945.",
+   tip:"Two blocks from Carnegie Hall, which fits the theme."},
+  // Photo
+  {c:"photo", n:"B&H Photo Video", w:"Midtown West · Ninth Ave at 34th St", q:"B&H Photo Video New York",
+   note:"The giant camera store. Purchases travel to the checkout on overhead conveyor belts, which is worth seeing on its own.",
+   tip:"Closed Saturdays and on Jewish holidays, with early closing on Fridays. Plan around it."},
+  {c:"photo", n:"Brooklyn Film Camera", w:"East Williamsburg · 855 Grand St", q:"Brooklyn Film Camera",
+   note:"A film-only camera shop with tested vintage bodies, fresh film and repairs.",
+   tip:"Take the L to Grand St. Pick up a roll here before your Brooklyn day."},
+  // Records
+  {c:"records", n:"Rough Trade", w:"Rockefeller Center · 30 Rockefeller Plaza", q:"Rough Trade Rockefeller Center",
+   note:"The London indie record shop's New York outpost. The main store is at street level, and a newer second shop (Rough Trade Below) opened in the concourse underneath.",
+   tip:"Check the events calendar for in-store performances and signings."},
+  {c:"records", n:"Limited to One Record Shop", w:"East Village · 221 E 10th St", q:"Limited to One Record Shop",
+   note:"A small shop that opened in 2017, focused on rare and collectible vinyl across punk, rock, soul and jazz.",
+   tip:"Around the corner from Casey Rubber Stamps."},
+  {c:"records", n:"Jazz Record Center", w:"Chelsea · 236 W 26th St, 8th floor", q:"Jazz Record Center New York",
+   note:"An eighth-floor office turned into a jazz collector's store since 1983: LPs, 78s, books and vintage posters.",
+   tip:"Take the elevator up. It's easy to walk past the building."},
+  // Shops
+  {c:"shop", n:"Casey Rubber Stamps", w:"East Village · E 11th St", q:"Casey Rubber Stamps New York",
+   note:"A tiny, long-running shop with thousands of rubber stamp designs covering the walls. It feels like a museum of the medium.",
+   tip:"Hours are limited and it's cash-friendly. Check before you go."},
+  {c:"shop", n:"John Derian Company", w:"East Village · 6 E 2nd St", q:"John Derian Company New York",
+   note:"Known for decoupage plates and paperweights made from antique prints, plus linens, furniture and objects across adjoining storefronts.",
+   tip:"The decoupage pieces are handmade on site and make good gifts."},
+  {c:"shop", n:"Pink Olive", w:"West Village", q:"Pink Olive West Village",
+   note:"A cheerful gift and stationery boutique with cards, small home goods and kids' things.",
+   tip:"Pairs with Dauphinette, a few blocks away."},
+  {c:"shop", n:"Joanne Hendricks Cookbooks", w:"Hudson Square · 488 Greenwich St", q:"Joanne Hendricks Cookbooks",
+   note:"A rare and antiquarian cookbook shop on the ground floor of an old townhouse, with ephemera and vintage kitchenware mixed in.",
+   tip:"Hours are irregular. Call ahead."},
+  {c:"shop", n:"Dauphinette", w:"West Village · 60 Bedford St", q:"Dauphinette 60 Bedford Street",
+   note:"Olivia Cheng's label, known for real flowers preserved in resin as jewelry and bags. The shop has a chandelier of anthuriums and walls of pressed botanicals.",
+   tip:"Closed Mondays. Open Tue–Fri 12–7, Sat 11–7, Sun 12–6."},
+  // Food
+  {c:"food", n:"Lexington Candy Shop", w:"Upper East Side · Lexington Ave at 83rd St", q:"Lexington Candy Shop",
+   note:"A luncheonette and soda fountain running since 1925. Order an egg cream, a lime rickey or a malted, with a burger or pancakes.",
+   tip:"Ten minutes from the Met. Perfect after the museum."},
+  // Music
+  {c:"music", n:"Birdland Jazz Club", w:"Theater District · 315 W 44th St", q:"Birdland Jazz Club",
+   note:"Named for Charlie “Bird” Parker. The original opened on Broadway in 1949; today's club on 44th St books big names and big bands.",
+   tip:"Reserve ahead. Expect a music charge plus a food or drink minimum."},
+  // Pop
+  {c:"pop", n:"Casey Neistat's Studio", w:"Tribeca · Broadway at Franklin St", q:"368 Broadway New York Casey Neistat",
+   note:"The building that housed Casey Neistat's studio, familiar from years of his vlogs.",
+   tip:"It's a working building, so it's a sidewalk photo stop only."}
+];
+
+const PHOTOS = {};
+const map = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+const pics = q => "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(q);
+const esc = s => s.replace(/[&<>"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+
+const guide = document.getElementById("guide");
+const nav = document.getElementById("index");
+let frame = 0;
+
+function chip(id,label,count,cls){
+  const b=document.createElement("button");
+  b.type="button"; b.className="chip "+(cls||""); b.dataset.cat=id;
+  if(id!=="all"){ b.style.setProperty("--c","var(--"+id+")"); b.style.setProperty("--t","var(--"+id+"-t)"); }
+  b.setAttribute("aria-pressed", id==="all" ? "true":"false");
+  b.innerHTML=esc(label)+' <span class="n">'+count+'</span>';
+  b.addEventListener("click",()=>filter(id));
+  nav.appendChild(b);
+}
+chip("all","All",P.length,"all");
+
+CATS.forEach(cat=>{
+  const items=P.filter(p=>p.c===cat.id);
+  if(!items.length) return;
+  chip(cat.id,cat.name,items.length);
+  const s=document.createElement("section");
+  s.className="cat"; s.id=cat.id; s.dataset.cat=cat.id;
+  s.style.setProperty("--c","var(--"+cat.id+")"); s.style.setProperty("--t","var(--"+cat.id+"-t)");
+  s.innerHTML='<div class="cat-head"><span class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+ICON[cat.id]+'</svg></span><h2>'+esc(cat.name)+'</h2><p>'+esc(cat.blurb)+'</p></div><div class="grid"></div>';
+  const g=s.querySelector(".grid");
+  items.forEach(p=>{
+    frame++;
+    const a=document.createElement("article");
+    a.className="card";
+    const ph=PHOTOS[p.n]||[];
+    const gal = ph.length ? '<div class="gallery"><div class="track" tabindex="0" aria-label="Photos of '+esc(p.n)+'">'+ph.map(x=>'<figure class="slide"><img src="'+x.src+'" alt="'+esc(x.cap)+'" loading="lazy" width="800" height="600"><figcaption>'+esc(x.cap)+'<span><a href="'+x.page+'" target="_blank" rel="noopener">'+esc(x.credit)+'</a></span></figcaption></figure>').join('')+'</div>'+
+      (ph.length>1 ? '<span class="count">1 / '+ph.length+'</span><button type="button" class="nav-btn prev" aria-label="Previous photo">‹</button><button type="button" class="nav-btn next" aria-label="Next photo">›</button><div class="dots">'+ph.map((_,i)=>'<i'+(i?'':' class="on"')+'></i>').join('')+'</div>' : '')+'</div>' : '';
+    a.innerHTML= gal +
+      '<div class="card-top"><h3>'+esc(p.n)+'</h3><span class="frame">No. '+String(frame).padStart(2,"0")+'</span></div>'+
+      '<p class="where">'+esc(p.w)+'</p>'+
+      '<p class="note">'+esc(p.note)+'</p>'+
+      '<p class="tip"><b>tip:</b>'+esc(p.tip)+'</p>'+
+      '<div class="links"><a href="'+map(p.q)+'" target="_blank" rel="noopener">Map ↗</a><a href="'+pics(p.q)+'" target="_blank" rel="noopener">Photos ↗</a></div>';
+    g.appendChild(a);
+    const tr=a.querySelector('.track');
+    if(tr && ph.length>1){
+      const cnt=a.querySelector('.count'), dots=a.querySelectorAll('.dots i');
+      const cur=()=>Math.round(tr.scrollLeft/tr.clientWidth);
+      const go=i=>tr.scrollTo({left:Math.max(0,Math.min(ph.length-1,i))*tr.clientWidth,behavior:'smooth'});
+      a.querySelector('.prev').addEventListener('click',()=>go(cur()-1));
+      a.querySelector('.next').addEventListener('click',()=>go(cur()+1));
+      tr.addEventListener('scroll',()=>{const i=cur(); cnt.textContent=(i+1)+' / '+ph.length; dots.forEach((d,k)=>d.classList.toggle('on',k===i));},{passive:true});
+    }
+  });
+  guide.appendChild(s);
+});
+
+function filter(id){
+  nav.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", c.dataset.cat===id ? "true":"false"));
+  guide.querySelectorAll("section.cat").forEach(s=>{ s.hidden = !(id==="all" || s.dataset.cat===id); });
+}
+</script>
+
+</body>
+</html>
