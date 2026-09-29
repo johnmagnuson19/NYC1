@@ -1,5 +1,5 @@
 # NYC 2026 Field Guide
 
-A travel guide to the 33 places on the NYC 2026 map, sorted by type.
+A travel guide to the 41 places on the NYC 2026 map, sorted by type.
 
 Live page: https://johnmagnuson19.github.io/NYC1/

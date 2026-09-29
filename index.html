@@ -120,7 +120,7 @@ footer a{color:var(--red)}
 
   <section class="mapbox" aria-label="Map of all stops">
     <iframe src="https://www.google.com/maps/d/embed?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k&amp;ll=40.735,-73.975&amp;z=12" title="NYC 2026 map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <div class="mapbar"><span>All 33 stops. Tap a pin for its name.</span><a href="https://www.google.com/maps/d/viewer?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
+    <div class="mapbar"><span>All 41 stops. Tap a pin for its name.</span><a href="https://www.google.com/maps/d/viewer?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
   </section>
 
   <nav class="index" id="index" aria-label="Filter by type"></nav>
@@ -135,9 +135,10 @@ footer a{color:var(--red)}
       <li><strong>Lower East Side photo afternoon.</strong> ICP Museum and AUTOPHOTO are two blocks apart around Essex, Orchard and Delancey.</li>
       <li><strong>East Village small shops.</strong> Casey Rubber Stamps and Limited to One are around the corner from each other; John Derian is a 10-minute walk south on 2nd St.</li>
       <li><strong>West Village wander.</strong> Dauphinette and Pink Olive are a few blocks apart; Joanne Hendricks Cookbooks is a walk south into Hudson Square.</li>
+      <li><strong>West Village dinner.</strong> Don Angie and Graciela are a block apart on Greenwich Ave, with Bangkok Supper Club a few minutes west. John's of Bleecker Street is the easy no-reservation fallback.</li>
       <li><strong>Midtown West records and gear.</strong> Jazz Record Center (26th St), B&amp;H (34th St), then Rough Trade at Rockefeller Center and a late set at Birdland on 44th St.</li>
-      <li><strong>Brooklyn day.</strong> Dumbo in the morning for the Manhattan Bridge view, Green-Wood Cemetery and Prospect Park in the afternoon. End the day at Kissa Kissa in Crown Heights, a short ride from Prospect Park. Brooklyn Film Camera is in East Williamsburg, a separate trip on the L train.</li>
-      <li><strong>Records by night.</strong> Hunt for LPs at Limited to One or Jazz Record Center in the afternoon, then hear them properly at a listening bar: All Blues in Tribeca, or Eavesdrop in Greenpoint.</li>
+      <li><strong>Brooklyn day.</strong> Dumbo in the morning for the Manhattan Bridge view, Green-Wood Cemetery and Prospect Park in the afternoon. Dinner at Theodora in Fort Greene, then end the day at Kissa Kissa in Crown Heights, a short ride from Prospect Park. Brooklyn Film Camera is in East Williamsburg, a separate trip on the L train.</li>
+      <li><strong>Records by night.</strong> Hunt for LPs at Limited to One or Jazz Record Center in the afternoon, then hear them properly at a listening bar: All Blues in Tribeca, or Eavesdrop in Greenpoint, with tacos first at Taqueria Ramirez around the corner.</li>
     </ol>
   </section>
 
@@ -156,7 +157,7 @@ const CATS = [
   {id:"photo", name:"Photo & Camera", blurb:"Gear, film, and repairs."},
   {id:"records", name:"Record Stores", blurb:"New releases, rare pressings, and jazz specialists."},
   {id:"shop", name:"Shops & Makers", blurb:"Small, specific, independent shops. Most have limited hours."},
-  {id:"food", name:"Food", blurb:"One stop, and it's a classic."},
+  {id:"food", name:"Food", blurb:"From a 1925 soda fountain to a brand-new Argentine grill. Most sit-down spots fill up, so book ahead where you can."},
   {id:"music", name:"Live Music", blurb:"Where to hear the music the statues commemorate."},
   {id:"listen", name:"Listening Bars", blurb:"Hi-fi rooms built for records played start to finish. Book ahead, keep your voice low, and let the album play."},
   {id:"pop", name:"Pop Culture", blurb:"Fan pilgrimage spots."}
@@ -268,6 +269,30 @@ const P = [
   {c:"food", n:"Lexington Candy Shop", w:"Upper East Side · Lexington Ave at 83rd St", q:"Lexington Candy Shop",
    note:"A luncheonette and soda fountain running since 1925. Order an egg cream, a lime rickey or a malted, with a burger or pancakes.",
    tip:"Ten minutes from the Met. Perfect after the museum."},
+  {c:"food", n:"C&B", w:"East Village · 178 E 7th St", q:"C&B 178 East 7th Street New York",
+   note:"A tiny, casual café and bakery just south of Tompkins Square Park, known for its egg sandwiches (with pork belly or chorizo), breakfast bowls and good coffee.",
+   tip:"A cheap, easy breakfast before the East Village shops. Casey Rubber Stamps and Limited to One are a few blocks away."},
+  {c:"food", n:"John's of Bleecker Street", w:"Greenwich Village · 278 Bleecker St", q:"John's of Bleecker Street",
+   note:"A pizzeria from 1929 with a coal-fired brick oven, and booths covered in decades of carved initials.",
+   tip:"Whole pies only, no slices. Go at an off-hour to skip the line."},
+  {c:"food", n:"Don Angie", w:"West Village · 103 Greenwich Ave", q:"Don Angie 103 Greenwich Avenue",
+   note:"Angie Rito and Scott Tacinelli's modern take on Italian-American food. The famous dish is the pinwheel lasagna for two.",
+   tip:"One of the hardest tables in the city. Book as early as you can. Graciela is a block away on Greenwich Ave."},
+  {c:"food", n:"Graciela", w:"West Village · Greenwich Ave at Bank St", q:"Graciela restaurant Greenwich Avenue Bank Street New York",
+   note:"New in July 2026 from the team behind Don Julio in Buenos Aires. Argentine live-fire cooking on a custom parrilla: ribeye, skirt steak, NY strip milanesa and osso buco empanadas.",
+   tip:"Brand new and very popular. Reserve through gracielanyc.com. Save room for the dulce de leche gelato."},
+  {c:"food", n:"Bangkok Supper Club", w:"Meatpacking · 641 Hudson St", q:"Bangkok Supper Club 641 Hudson Street",
+   note:"A lively Thai spot with deep booths and a big-night-out feel. The starters are the strongest part of the menu: Hokkaido scallop ceviche, fried duck egg salad and grilled beef tongue.",
+   tip:"Order lots of small plates and cocktails rather than big entrées. Reserve on Resy."},
+  {c:"food", n:"Taqueria Ramirez", w:"Greenpoint · 94 Franklin St", q:"Taqueria Ramirez 94 Franklin Street Brooklyn",
+   note:"Mexico City-style tacos from an open kitchen. Get the suadero (slow-cooked beef), the al pastor off the trompo, and the campechano.",
+   tip:"Tiny counter, and most people eat standing outside. The line moves fast, but popular fillings sell out by evening. Pairs well with Eavesdrop nearby."},
+  {c:"food", n:"Theodora", w:"Fort Greene · 7 Greene Ave", q:"Theodora 7 Greene Avenue Brooklyn",
+   note:"Mediterranean seafood and small plates in a moody, mid-century room. Order the za'atar kubaneh bread, the striped bass ceviche and the crispy-skin trout.",
+   tip:"Reserve on Resy, or walk in for bar seats. Good dinner after a day in Prospect Park."},
+  {c:"food", n:"Rolo's", w:"Ridgewood, Queens · 853 Onderdonk Ave", q:"Rolo's 853 Onderdonk Avenue Queens",
+   note:"A neighborhood bar and grill that cooks over a wood fire, with house-smoked meats, pasta, baked goods and cocktails. It's in the Michelin Guide.",
+   tip:"Worth the trip for weekend brunch. Take the L or M to Ridgewood. Reserve on Resy."},
   // Music
   {c:"music", n:"Birdland Jazz Club", w:"Theater District · 315 W 44th St", q:"Birdland Jazz Club",
    note:"Named for Charlie “Bird” Parker. The original opened on Broadway in 1949; today's club on 44th St books big names and big bands.",
