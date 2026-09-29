@@ -120,7 +120,7 @@ footer a{color:var(--red)}
 
   <section class="mapbox" aria-label="Map of all stops">
     <iframe src="https://www.google.com/maps/d/embed?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k&amp;ll=40.735,-73.975&amp;z=12" title="NYC 2026 map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <div class="mapbar"><span>All 41 stops. Tap a pin for its name.</span><a href="https://www.google.com/maps/d/viewer?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
+    <div class="mapbar"><span>All 44 stops. Tap a pin for its name.</span><a href="https://www.google.com/maps/d/viewer?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
   </section>
 
   <nav class="index" id="index" aria-label="Filter by type"></nav>
@@ -135,8 +135,9 @@ footer a{color:var(--red)}
       <li><strong>Lower East Side photo afternoon.</strong> ICP Museum and AUTOPHOTO are two blocks apart around Essex, Orchard and Delancey.</li>
       <li><strong>East Village small shops.</strong> Casey Rubber Stamps and Limited to One are around the corner from each other; John Derian is a 10-minute walk south on 2nd St.</li>
       <li><strong>West Village wander.</strong> Dauphinette and Pink Olive are a few blocks apart; Joanne Hendricks Cookbooks is a walk south into Hudson Square.</li>
-      <li><strong>West Village dinner.</strong> Don Angie and Graciela are a block apart on Greenwich Ave, with Bangkok Supper Club a few minutes west. John's of Bleecker Street is the easy no-reservation fallback.</li>
+      <li><strong>West Village dinner.</strong> Start at Washington Square Park. Don Angie and Graciela are a block apart on Greenwich Ave, with Bangkok Supper Club a few minutes west. John's of Bleecker Street is the easy no-reservation fallback.</li>
       <li><strong>Midtown West records and gear.</strong> Jazz Record Center (26th St), B&amp;H (34th St), then Rough Trade at Rockefeller Center and a late set at Birdland on 44th St.</li>
+      <li><strong>Harbor and downtown.</strong> Ferry to the Statue of Liberty in the morning, then walk up from Battery Park to One World Trade Center and the 9/11 Memorial. Tribeca and All Blues are a short walk north for the evening.</li>
       <li><strong>Brooklyn day.</strong> Dumbo in the morning for the Manhattan Bridge view, Green-Wood Cemetery and Prospect Park in the afternoon. Dinner at Theodora in Fort Greene, then end the day at Kissa Kissa in Crown Heights, a short ride from Prospect Park. Brooklyn Film Camera is in East Williamsburg, a separate trip on the L train.</li>
       <li><strong>Records by night.</strong> Hunt for LPs at Limited to One or Jazz Record Center in the afternoon, then hear them properly at a listening bar: All Blues in Tribeca, or Eavesdrop in Greenpoint, with tacos first at Taqueria Ramirez around the corner.</li>
     </ol>
@@ -150,10 +151,10 @@ footer a{color:var(--red)}
 
 <script>
 const CATS = [
-  {id:"park", name:"Parks & Neighborhoods", blurb:"Green space, views, and one of the best walks in Brooklyn."},
-  {id:"arch", name:"Architecture", blurb:"Two Victorian set pieces inside Central Park, both by Calvert Vaux and Jacob Wrey Mould."},
+  {id:"park", name:"Parks & Neighborhoods", blurb:"Green space, views, and a few of the best walks in the city."},
+  {id:"arch", name:"Architecture", blurb:"Victorian set pieces in Central Park and the tallest building in the Western Hemisphere."},
   {id:"museum", name:"Museums & Galleries", blurb:"Heavy on photography: three of these are photo institutions."},
-  {id:"memorial", name:"Monuments & Statues", blurb:"A composers' trail. Each one marks a musician with a real New York connection."},
+  {id:"memorial", name:"Monuments & Statues", blurb:"A composers' trail, plus the city's most famous statue of all."},
   {id:"photo", name:"Photo & Camera", blurb:"Gear, film, and repairs."},
   {id:"records", name:"Record Stores", blurb:"New releases, rare pressings, and jazz specialists."},
   {id:"shop", name:"Shops & Makers", blurb:"Small, specific, independent shops. Most have limited hours."},
@@ -190,6 +191,9 @@ const P = [
   {c:"park", n:"The Green-Wood Cemetery", w:"Brooklyn · Sunset Park", q:"Green-Wood Cemetery Brooklyn",
    note:"Founded in 1838 and a National Historic Landmark, with a Gothic Revival main gate by Richard Upjohn. Leonard Bernstein, Jean-Michel Basquiat and Louis Comfort Tiffany are buried here.",
    tip:"Climb Battle Hill to the Minerva statue, who salutes the Statue of Liberty across the harbor. Free, open daily."},
+  {c:"park", n:"Washington Square Park", w:"Greenwich Village · Fifth Ave at Waverly Pl", q:"Washington Square Park New York",
+   note:"The Village's front yard, anchored by Stanford White's marble arch (1892) and a big central fountain. Street performers, chess players and NYU students fill it most days.",
+   tip:"Graciela and Don Angie are a short walk northwest on Greenwich Ave, and John's of Bleecker is just west."},
   // Architecture
   {c:"arch", n:"Belvedere Castle", w:"Central Park · mid-park at 79th St", q:"Belvedere Castle Central Park",
    note:"A small Victorian folly from 1869 on Vista Rock, the park's second-highest point. It doubles as a weather station and was fully restored in 2019.",
@@ -197,6 +201,9 @@ const P = [
   {c:"arch", n:"Bethesda Terrace", w:"Central Park · mid-park at 72nd St", q:"Bethesda Terrace Central Park",
    note:"The park's formal heart. The Angel of the Waters fountain (1873) is by Emma Stebbins, the first woman commissioned for a major public artwork in New York.",
    tip:"Walk through the lower arcade to see the Minton tile ceiling. Buskers play there because the acoustics are great."},
+  {c:"arch", n:"One World Trade Center", w:"Financial District · 285 Fulton St", q:"One World Trade Center",
+   note:"The 1,776-foot tower that opened in 2014 on the rebuilt World Trade Center site. One World Observatory occupies the top floors.",
+   tip:"The 9/11 Memorial pools and Santiago Calatrava's Oculus are right next door."},
   // Museums
   {c:"museum", n:"The Metropolitan Museum of Art", w:"Fifth Ave at 82nd St", q:"Metropolitan Museum of Art",
    note:"Pick two or three wings rather than trying to see it all. With your interests, the photography galleries and the musical instruments collection are good anchors.",
@@ -232,6 +239,9 @@ const P = [
   {c:"memorial", n:"Béla Bartók Bust", w:"Midtown West · W 57th St", q:"Bela Bartok statue New York 57th Street",
    note:"A bronze bust marking the stretch of West 57th St where the Hungarian composer spent his last years in New York before his death in 1945.",
    tip:"Two blocks from Carnegie Hall, which fits the theme."},
+  {c:"memorial", n:"Statue of Liberty", w:"Liberty Island · New York Harbor", q:"Statue of Liberty",
+   note:"Bartholdi's copper statue, dedicated in 1886, with an internal frame by Gustave Eiffel. The ferry also stops at Ellis Island.",
+   tip:"Buy ferry tickets only from Statue City Cruises, the official operator. Pedestal and crown access sell out, so book ahead."},
   // Photo
   {c:"photo", n:"B&H Photo Video", w:"Midtown West · Ninth Ave at 34th St", q:"B&H Photo Video New York",
    note:"The giant camera store. Purchases travel to the checkout on overhead conveyor belts, which is worth seeing on its own.",
