@@ -120,7 +120,7 @@ footer a{color:var(--red)}
 
   <section class="mapbox" aria-label="Map of all stops">
     <iframe src="https://www.google.com/maps/d/embed?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k&amp;ll=40.735,-73.975&amp;z=12" title="NYC 2026 map" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <div class="mapbar"><span>All 44 stops. Tap a pin for its name.</span><a href="https://www.google.com/maps/d/viewer?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
+    <div class="mapbar"><span>All 59 stops. Tap a pin for its name.</span><a href="https://www.google.com/maps/d/viewer?mid=1EFbdAlGkIPRYRxzOUg1O2WmmLU2KL8k" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
   </section>
 
   <nav class="index" id="index" aria-label="Filter by type"></nav>
@@ -131,10 +131,12 @@ footer a{color:var(--red)}
     <p class="sub">stops that go well together</p>
     <ol>
       <li><strong>Central Park south to north.</strong> Enter at 72nd St, walk the Mall to the Beethoven bust, down the steps to Bethesda Terrace, then up past the Ramble to Belvedere Castle. Exit east to the Met, and finish with an egg cream at Lexington Candy Shop.</li>
-      <li><strong>Museum Mile.</strong> The Met and the Guggenheim are six blocks apart on Fifth Ave. George Glazer Gallery is a short walk east on 94th St after the Guggenheim.</li>
+      <li><strong>Museum Mile.</strong> Start at the Frick on 70th St, then the Met and the Guggenheim farther up Fifth Ave. Albertine is across from the Met. George Glazer Gallery is a short walk east on 94th St after the Guggenheim.</li>
       <li><strong>Lower East Side photo afternoon.</strong> ICP Museum and AUTOPHOTO are two blocks apart around Essex, Orchard and Delancey.</li>
       <li><strong>East Village small shops.</strong> Casey Rubber Stamps and Limited to One are around the corner from each other; John Derian is a 10-minute walk south on 2nd St.</li>
-      <li><strong>West Village wander.</strong> Dauphinette and Pink Olive are a few blocks apart; Joanne Hendricks Cookbooks is a walk south into Hudson Square.</li>
+      <li><strong>West Village wander.</strong> Dauphinette and Pink Olive are a few blocks apart; Saint Luke's Place is around the corner, and Joanne Hendricks Cookbooks is a walk south into Hudson Square.</li>
+      <li><strong>Whitney and the river.</strong> The Whitney's terraces, then Little Island across the street at sunset, and dinner at Bangkok Supper Club.</li>
+      <li><strong>Upper West Side morning.</strong> Aperture and the Gilder Center face each other across Columbus Ave. The Sunshinery is a short walk north.</li>
       <li><strong>West Village dinner.</strong> Start at Washington Square Park. Don Angie and Graciela are a block apart on Greenwich Ave, with Bangkok Supper Club a few minutes west. John's of Bleecker Street is the easy no-reservation fallback.</li>
       <li><strong>Midtown West records and gear.</strong> Jazz Record Center (26th St), B&amp;H (34th St), then Rough Trade at Rockefeller Center and a late set at Birdland on 44th St.</li>
       <li><strong>Harbor and downtown.</strong> Ferry to the Statue of Liberty in the morning, then walk up from Battery Park to One World Trade Center and the 9/11 Memorial. Tribeca and All Blues are a short walk north for the evening.</li>
@@ -153,11 +155,11 @@ footer a{color:var(--red)}
 const CATS = [
   {id:"park", name:"Parks & Neighborhoods", blurb:"Green space, views, and a few of the best walks in the city."},
   {id:"arch", name:"Architecture", blurb:"Victorian set pieces in Central Park and the tallest building in the Western Hemisphere."},
-  {id:"museum", name:"Museums & Galleries", blurb:"Heavy on photography: three of these are photo institutions."},
+  {id:"museum", name:"Museums & Galleries", blurb:"The big names plus a strong photography thread: three of these are photo institutions."},
   {id:"memorial", name:"Monuments & Statues", blurb:"A composers' trail, plus the city's most famous statue of all."},
   {id:"photo", name:"Photo & Camera", blurb:"Gear, film, and repairs."},
   {id:"records", name:"Record Stores", blurb:"New releases, rare pressings, and jazz specialists."},
-  {id:"shop", name:"Shops & Makers", blurb:"Small, specific, independent shops. Most have limited hours."},
+  {id:"shop", name:"Shops & Bookstores", blurb:"Independent shops, bookstores and thrift stores. Many have limited hours, so check before you go."},
   {id:"food", name:"Food", blurb:"From a 1925 soda fountain to a brand-new Argentine grill. Most sit-down spots fill up, so book ahead where you can."},
   {id:"music", name:"Live Music", blurb:"Where to hear the music the statues commemorate."},
   {id:"listen", name:"Listening Bars", blurb:"Hi-fi rooms built for records played start to finish. Book ahead, keep your voice low, and let the album play."},
@@ -194,6 +196,12 @@ const P = [
   {c:"park", n:"Washington Square Park", w:"Greenwich Village · Fifth Ave at Waverly Pl", q:"Washington Square Park New York",
    note:"The Village's front yard, anchored by Stanford White's marble arch (1892) and a big central fountain. Street performers, chess players and NYU students fill it most days.",
    tip:"Graciela and Don Angie are a short walk northwest on Greenwich Ave, and John's of Bleecker is just west."},
+  {c:"park", n:"Conservatory Garden", w:"Central Park · Fifth Ave at 105th St", q:"Conservatory Garden Central Park",
+   note:"Central Park's only formal garden: six acres split into Italian, French and English sections. It's one of the quietest corners of the park.",
+   tip:"Enter through the Vanderbilt Gate on Fifth Ave. The Duke Ellington statue is a few blocks north."},
+  {c:"park", n:"Little Island", w:"Hudson River Park · Pier 55 at W 13th St", q:"Little Island New York",
+   note:"A small park built on 132 tulip-shaped concrete pots over the Hudson, opened in 2021. Paths wind up to lookouts with river and sunset views.",
+   tip:"Free. At busy times it may need a timed entry reservation, so check the website. The Whitney is right across the street."},
   // Architecture
   {c:"arch", n:"Belvedere Castle", w:"Central Park · mid-park at 79th St", q:"Belvedere Castle Central Park",
    note:"A small Victorian folly from 1869 on Vista Rock, the park's second-highest point. It doubles as a weather station and was fully restored in 2019.",
@@ -204,6 +212,9 @@ const P = [
   {c:"arch", n:"One World Trade Center", w:"Financial District · 285 Fulton St", q:"One World Trade Center",
    note:"The 1,776-foot tower that opened in 2014 on the rebuilt World Trade Center site. One World Observatory occupies the top floors.",
    tip:"The 9/11 Memorial pools and Santiago Calatrava's Oculus are right next door."},
+  {c:"arch", n:"Saint Luke's Place", w:"West Village · Leroy St at Seventh Ave South", q:"Saint Luke's Place New York",
+   note:"One block of 15 Italianate rowhouses from 1851–52, with high stoops and ironwork. Theodore Dreiser and Marianne Moore lived here, and No. 10 was the Huxtables' house on The Cosby Show.",
+   tip:"A short detour from Dauphinette and John's of Bleecker. Jimmy Walker Park is across the street."},
   // Museums
   {c:"museum", n:"The Metropolitan Museum of Art", w:"Fifth Ave at 82nd St", q:"Metropolitan Museum of Art",
    note:"Pick two or three wings rather than trying to see it all. With your interests, the photography galleries and the musical instruments collection are good anchors.",
@@ -226,6 +237,21 @@ const P = [
   {c:"museum", n:"George Glazer Gallery", w:"Upper East Side · 308 E 94th St", q:"George Glazer Gallery",
    note:"An antiques gallery specializing in globes, maps, celestial charts and scientific instruments. Part shop, part cabinet of curiosities.",
    tip:"Call or email before visiting to confirm it's open."},
+  {c:"museum", n:"The Frick Collection", w:"Upper East Side · Fifth Ave at 70th St", q:"The Frick Collection New York",
+   note:"Henry Clay Frick's Gilded Age mansion, filled with old masters including Vermeer, Rembrandt and Holbein. It reopened in 2025 after a major renovation that opened the upstairs rooms for the first time.",
+   tip:"Book a timed ticket ahead. It's a 10-minute walk south of the Met along Fifth Ave."},
+  {c:"museum", n:"Gilder Center", w:"Upper West Side · Columbus Ave at 79th St", q:"Gilder Center American Museum of Natural History",
+   note:"The American Museum of Natural History's newest wing, opened in 2023. The canyon-like atrium is the draw, with an insectarium and a butterfly vivarium inside.",
+   tip:"Entry is through a Natural History Museum ticket. Aperture is right across Columbus Ave."},
+  {c:"museum", n:"Whitney Museum of American Art", w:"Meatpacking · 99 Gansevoort St", q:"Whitney Museum of American Art",
+   note:"Twentieth-century and contemporary American art in Renzo Piano's 2015 building. The outdoor terraces on each floor look over the Hudson and the High Line.",
+   tip:"Little Island is across the street, and Bangkok Supper Club is a few blocks away for dinner."},
+  {c:"museum", n:"New York Public Library", w:"Midtown · Fifth Ave at 42nd St", q:"New York Public Library Stephen A. Schwarzman Building",
+   note:"The 1911 Beaux-Arts main branch, guarded by the stone lions Patience and Fortitude. Go upstairs to the Rose Main Reading Room.",
+   tip:"Free. A short walk from the Morgan Library, with Bryant Park right behind it."},
+  {c:"museum", n:"The Met Cloisters", w:"Fort Tryon Park · Washington Heights", q:"The Met Cloisters",
+   note:"The Met's medieval branch, built from pieces of European monasteries, on a hilltop above the Hudson. Home of the Unicorn Tapestries.",
+   tip:"Far uptown, about 45 minutes by A train. A Met ticket covers both locations on the same day."},
   // Memorials
   {c:"memorial", n:"Beethoven Monument", w:"Central Park · the Mall", q:"Beethoven bust Central Park",
    note:"A bronze bust by Henry Baerer from 1884, standing on the Concert Ground at the north end of the Mall near the Naumburg Bandshell.",
@@ -275,6 +301,18 @@ const P = [
   {c:"shop", n:"Dauphinette", w:"West Village · 60 Bedford St", q:"Dauphinette 60 Bedford Street",
    note:"Olivia Cheng's label, known for real flowers preserved in resin as jewelry and bags. The shop has a chandelier of anthuriums and walls of pressed botanicals.",
    tip:"Closed Mondays. Open Tue–Fri 12–7, Sat 11–7, Sun 12–6."},
+  {c:"shop", n:"Albertine", w:"Upper East Side · 972 Fifth Ave", q:"Albertine Books 972 Fifth Avenue",
+   note:"A French and English bookstore run by the French Embassy, inside Stanford White's Payne Whitney House. Upstairs, the reading room has a painted ceiling of stars and constellations.",
+   tip:"Across Fifth Ave from the Met. Free to browse."},
+  {c:"shop", n:"The Sunshinery", w:"Upper West Side · 551 Columbus Ave at 86th St", q:"The Sunshinery 551 Columbus Avenue",
+   note:"A cheerful gift shop meant to feel like a resort-town boutique: jewelry, mugs, notebooks, picnic blankets and weekend bags, much of it from women-owned and fair-trade makers.",
+   tip:"A few blocks north of Aperture and the Gilder Center."},
+  {c:"shop", n:"Goodwill Chelsea", w:"Chelsea · 103 W 25th St", q:"Goodwill NYNJ 103 West 25th Street",
+   note:"A large Goodwill store in Chelsea for thrifting clothes, books and housewares.",
+   tip:"Two blocks from Jazz Record Center. Stock changes daily."},
+  {c:"shop", n:"Out of the Closet", w:"Boerum Hill, Brooklyn · 475 Atlantic Ave", q:"Out of the Closet Brooklyn 475 Atlantic Avenue",
+   note:"A thrift store run by the AIDS Healthcare Foundation, which funds its HIV care and testing programs with the proceeds.",
+   tip:"On the way between Dumbo and Prospect Park on your Brooklyn day."},
   // Food
   {c:"food", n:"Lexington Candy Shop", w:"Upper East Side · Lexington Ave at 83rd St", q:"Lexington Candy Shop",
    note:"A luncheonette and soda fountain running since 1925. Order an egg cream, a lime rickey or a malted, with a burger or pancakes.",
@@ -303,6 +341,15 @@ const P = [
   {c:"food", n:"Rolo's", w:"Ridgewood, Queens · 853 Onderdonk Ave", q:"Rolo's 853 Onderdonk Avenue Queens",
    note:"A neighborhood bar and grill that cooks over a wood fire, with house-smoked meats, pasta, baked goods and cocktails. It's in the Michelin Guide.",
    tip:"Worth the trip for weekend brunch. Take the L or M to Ridgewood. Reserve on Resy."},
+  {c:"food", n:"Mythos Greek Frozen Yogurt", w:"Upper East Side · Lenox Hill", q:"Mythos Greek Frozen Yogurt New York",
+   note:"The first U.S. shop of a Greek frozen yogurt brand, opened in June 2026. Tangy, less sweet froyo with toppings made in-house.",
+   tip:"Expect a line in the evening. A good stop after the Frick."},
+  {c:"food", n:"Myka Greek Frozen Yogurt", w:"Rockefeller Center", q:"Myka Greek Frozen Yogurt Rockefeller Center",
+   note:"Madrid-born Greek frozen yogurt made with yogurt imported from Greece: dense, tangy and high in protein, with toppings like honey, nuts and baklava.",
+   tip:"Steps from Rough Trade. Lines can be long, so go at an off-hour."},
+  {c:"food", n:"Trader Joe's Bridgemarket", w:"Upper East Side · E 59th St under the Queensboro Bridge", q:"Trader Joe's Bridgemarket New York",
+   note:"A Trader Joe's that opened in 2021 under the Queensboro Bridge. The store sits beneath soaring Guastavino tile vaults, which makes it worth seeing even if you aren't shopping.",
+   tip:"Good for snacks and drinks for the hotel room. Look up at the ceiling."},
   // Music
   {c:"music", n:"Birdland Jazz Club", w:"Theater District · 315 W 44th St", q:"Birdland Jazz Club",
    note:"Named for Charlie “Bird” Parker. The original opened on Broadway in 1949; today's club on 44th St books big names and big bands.",
